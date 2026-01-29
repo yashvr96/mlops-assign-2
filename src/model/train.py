@@ -130,6 +130,40 @@ def train(args):
         }
         with open("metrics.json", "w") as f:
             json.dump(metrics, f, indent=4)
+            
+        # Generate and log Confusion Matrix
+        print("Generating confusion matrix...")
+        all_preds = []
+        all_labels = []
+        model.eval()
+        with torch.no_grad():
+            for images, labels in val_loader:
+                images = images.to(device)
+                outputs = model(images)
+                predicted = (outputs > 0.5).float().cpu().numpy()
+                all_preds.extend(predicted)
+                all_labels.extend(labels.numpy())
+        
+        try:
+            from sklearn.metrics import confusion_matrix
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+            
+            cm = confusion_matrix(all_labels, all_preds)
+            plt.figure(figsize=(8, 6))
+            sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=['Cat', 'Dog'], yticklabels=['Cat', 'Dog'])
+            plt.xlabel('Predicted')
+            plt.ylabel('Actual')
+            plt.title('Confusion Matrix')
+            
+            cm_path = "confusion_matrix.png"
+            plt.savefig(cm_path)
+            mlflow.log_artifact(cm_path)
+            print("Confusion matrix logged to MLflow.")
+        except ImportError:
+            print("Skipping confusion matrix plot (missing seaborn/matplotlib).")
+        except Exception as e:
+            print(f"Error logging confusion matrix: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
