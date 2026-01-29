@@ -25,3 +25,7 @@ dist/
 mlruns/
 *.pth
 *.pkl
+
+# Agent Metadata
+.agent/
+project_rules.md
