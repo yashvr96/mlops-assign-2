@@ -1,0 +1,168 @@
+{
+    "timestamp": "2026-01-29 22:36:34",
+    "total_samples": 20,
+    "accuracy": 0.4,
+    "avg_latency_ms": 45.54,
+    "details": [
+        {
+            "filename": "dog.1372.jpg",
+            "true_label": "dog",
+            "prediction": "cat",
+            "confidence": 0.5,
+            "latency_ms": 62.93,
+            "correct": false
+        },
+        {
+            "filename": "cat.3946.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.61,
+            "latency_ms": 47.56,
+            "correct": false
+        },
+        {
+            "filename": "cat.3162.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.51,
+            "latency_ms": 33.18,
+            "correct": false
+        },
+        {
+            "filename": "dog.2111.jpg",
+            "true_label": "dog",
+            "prediction": "cat",
+            "confidence": 0.5,
+            "latency_ms": 46.56,
+            "correct": false
+        },
+        {
+            "filename": "dog.46.jpg",
+            "true_label": "dog",
+            "prediction": "cat",
+            "confidence": 0.54,
+            "latency_ms": 47.48,
+            "correct": false
+        },
+        {
+            "filename": "dog.1289.jpg",
+            "true_label": "dog",
+            "prediction": "cat",
+            "confidence": 0.54,
+            "latency_ms": 44.35,
+            "correct": false
+        },
+        {
+            "filename": "dog.1140.jpg",
+            "true_label": "dog",
+            "prediction": "cat",
+            "confidence": 0.5,
+            "latency_ms": 67.51,
+            "correct": false
+        },
+        {
+            "filename": "cat.1720.jpg",
+            "true_label": "cat",
+            "prediction": "cat",
+            "confidence": 0.58,
+            "latency_ms": 37.14,
+            "correct": true
+        },
+        {
+            "filename": "dog.3043.jpg",
+            "true_label": "dog",
+            "prediction": "dog",
+            "confidence": 0.68,
+            "latency_ms": 46.74,
+            "correct": true
+        },
+        {
+            "filename": "cat.2956.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.62,
+            "latency_ms": 42.31,
+            "correct": false
+        },
+        {
+            "filename": "cat.2839.jpg",
+            "true_label": "cat",
+            "prediction": "cat",
+            "confidence": 0.59,
+            "latency_ms": 45.48,
+            "correct": true
+        },
+        {
+            "filename": "cat.3310.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.73,
+            "latency_ms": 54.88,
+            "correct": false
+        },
+        {
+            "filename": "dog.2794.jpg",
+            "true_label": "dog",
+            "prediction": "dog",
+            "confidence": 0.58,
+            "latency_ms": 58.06,
+            "correct": true
+        },
+        {
+            "filename": "cat.557.jpg",
+            "true_label": "cat",
+            "prediction": "cat",
+            "confidence": 0.7,
+            "latency_ms": 45.61,
+            "correct": true
+        },
+        {
+            "filename": "cat.214.jpg",
+            "true_label": "cat",
+            "prediction": "cat",
+            "confidence": 0.74,
+            "latency_ms": 34.6,
+            "correct": true
+        },
+        {
+            "filename": "cat.1964.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.72,
+            "latency_ms": 37.04,
+            "correct": false
+        },
+        {
+            "filename": "cat.1046.jpg",
+            "true_label": "cat",
+            "prediction": "cat",
+            "confidence": 0.52,
+            "latency_ms": 46.37,
+            "correct": true
+        },
+        {
+            "filename": "dog.2913.jpg",
+            "true_label": "dog",
+            "prediction": "dog",
+            "confidence": 0.63,
+            "latency_ms": 31.65,
+            "correct": true
+        },
+        {
+            "filename": "cat.2611.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.64,
+            "latency_ms": 46.17,
+            "correct": false
+        },
+        {
+            "filename": "cat.2877.jpg",
+            "true_label": "cat",
+            "prediction": "dog",
+            "confidence": 0.59,
+            "latency_ms": 35.26,
+            "correct": false
+        }
+    ]
+}

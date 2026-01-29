@@ -61,7 +61,7 @@ async def predict_endpoint(file: UploadFile = File(...)):
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
     
-    if not file.content_type.startswith("image/"):
+    if file.content_type and not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File provided is not an image.")
     
     try:
