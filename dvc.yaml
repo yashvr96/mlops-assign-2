@@ -1,0 +1,21 @@
+stages:
+  prepare:
+    cmd: venv\Scripts\python.exe src/prepare_data.py --input data/raw --output data/processed
+    deps:
+      - src/prepare_data.py
+      - data/raw
+    outs:
+      - data/processed
+  
+  train:
+    cmd: venv\Scripts\python.exe src/model/train.py --data_path data/processed --epochs 1
+    deps:
+    - data/processed
+    - src/model/dataset.py
+    - src/model/model.py
+    - src/model/train.py
+    outs:
+    - models/model.pth
+    metrics:
+    - metrics.json:
+        cache: false

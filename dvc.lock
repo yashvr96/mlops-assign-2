@@ -1,0 +1,51 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: venv\Scripts\python.exe src/prepare_data.py --input data/raw --output 
+      data/processed
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: de95dd24fd407edaf15d71140b5c2aaa.dir
+      size: 228459385
+      nfiles: 10032
+    - path: src/prepare_data.py
+      hash: md5
+      md5: 9662b36ee67fcdaf075e6b678d38c085
+      size: 1795
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 253a460cce62ec760c17ef6d0633f3b5.dir
+      size: 182170006
+      nfiles: 8005
+  train:
+    cmd: venv\Scripts\python.exe src/model/train.py --data_path data/processed 
+      --epochs 1
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 253a460cce62ec760c17ef6d0633f3b5.dir
+      size: 182170006
+      nfiles: 8005
+    - path: src/model/dataset.py
+      hash: md5
+      md5: 2274ee1973ce4d04e0c6826346784012
+      size: 1612
+    - path: src/model/model.py
+      hash: md5
+      md5: 6c27d6f16c2252c81935f593a7568998
+      size: 1208
+    - path: src/model/train.py
+      hash: md5
+      md5: a22189adaae7069bec3cd2c89989e6b7
+      size: 5220
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: ce22b916ef7b9474cf191d1a053099c1
+      size: 142
+    - path: models/model.pth
+      hash: md5
+      md5: d1e1673ea153f062b4500059d8fee87f
+      size: 206163035

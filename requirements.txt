@@ -1,0 +1,23 @@
+# Core ML
+torch>=2.2.0
+torchvision>=0.17.0
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+
+# API & Server
+fastapi>=0.109.0
+uvicorn>=0.27.0
+python-multipart>=0.0.9
+
+# MLOps & Experiment Tracking
+dvc>=3.48.0
+mlflow>=2.10.0
+kaggle>=1.6.0
+
+# Testing
+pytest>=8.0.0
+httpx>=0.27.0
+
+# Utils
+pypdf>=4.0.0
