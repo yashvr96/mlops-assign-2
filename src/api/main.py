@@ -26,6 +26,28 @@ async def lifespan(app: FastAPI):
     yield
     # Clean up resources if needed
 
+# Configure Logging
+import logging
+import json
+
+class JsonFormatter(logging.Formatter):
+    def format(self, record):
+        log_record = {
+            "timestamp": self.formatTime(record, self.datefmt),
+            "level": record.levelname,
+            "message": record.getMessage(),
+            "module": record.module,
+        }
+        if hasattr(record, "request_info"):
+            log_record.update(record.request_info)
+        return json.dumps(log_record)
+
+logger = logging.getLogger("api")
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(JsonFormatter())
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+
 app = FastAPI(title="Cats vs Dogs Qualifier", lifespan=lifespan)
 
 @app.get("/health")
@@ -45,11 +67,22 @@ async def predict_endpoint(file: UploadFile = File(...)):
     try:
         contents = await file.read()
         label, confidence = predict(model, contents, device)
-        return {
+        
+        response_data = {
             "filename": file.filename,
             "prediction": label,
             "confidence": f"{confidence:.2f}"
         }
+        
+        logger.info("Prediction request processed", extra={"request_info": {
+            "endpoint": "/predict",
+            "status_code": 200,
+            "filename": file.filename,
+            "prediction": label,
+            "confidence": confidence
+        }})
+        
+        return response_data
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
