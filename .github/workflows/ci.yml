@@ -43,3 +43,17 @@ jobs:
         context: .
         push: false
         tags: mlops-assign-2:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Simulate Deployment
+      run: |
+        echo "Deploying to production environment..."
+        echo "Pulling Docker image..."
+        echo "Restarting service..."
+        echo "Deployment successful!"
